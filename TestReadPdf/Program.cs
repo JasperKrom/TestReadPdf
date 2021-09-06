@@ -12,6 +12,9 @@ namespace TestReadPdf
             var pdf = new PdfDocument(fileLocation);
 
             Console.WriteLine($"Security settings edit: {pdf.SecuritySettings.AllowUserEdits}");
+
+            var ForegroundStamp = new IronPdf.Editing.HtmlStamp() { Html = "<h2 style='color:red'>copyright 2018 ironpdf.com", Width = 50, Height = 50, Opacity = 50, Rotation = -45, ZIndex = IronPdf.Editing.HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+            pdf.StampHTML(ForegroundStamp);
         }
     }
 }
